@@ -416,4 +416,12 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Resharper DotSettings file
+*.DotSettings
+
+# OSX
 .DS_Store
+
+# Idea
+.Idea
