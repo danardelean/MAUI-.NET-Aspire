@@ -7,19 +7,21 @@ var publicDevTunnel = builder.AddDevTunnel("devtunnel-public")
     .WithReference(webapi.GetEndpoint("https"));
 
 var mauiapp = builder.AddMauiProject("mauiapp", "../SampleMauiApp/SampleMauiApp.csproj");
-var blazorhybridapp = builder.AddMauiProject("blazorhybridapp", "../SampleBlazorHybridApp/SampleBlazorHybridApp.csproj");
-var hybridwebviewapp = builder.AddMauiProject("hybridwebviewapp", "../SampleHybridWebViewApp/SampleHybridWebViewApp.csproj");
+//var blazorhybridapp = builder.AddMauiProject("blazorhybridapp", "../SampleBlazorHybridApp/SampleBlazorHybridApp.csproj");
+//var hybridwebviewapp = builder.AddMauiProject("hybridwebviewapp", "../SampleHybridWebViewApp/SampleHybridWebViewApp.csproj");
 
 if (OperatingSystem.IsWindows())
 {
     mauiapp.AddWindowsDevice()
         .WithReference(webapi);
 
+    /*
     blazorhybridapp.AddWindowsDevice()
         .WithReference(webapi);
 
     hybridwebviewapp.AddWindowsDevice()
         .WithReference(webapi);
+    */
 }
 
 if (OperatingSystem.IsMacOS())
@@ -31,6 +33,7 @@ if (OperatingSystem.IsMacOS())
         .WithOtlpDevTunnel()
         .WithReference(webapi, publicDevTunnel);
 
+    /*
     blazorhybridapp.AddMacCatalystDevice()
         .WithReference(webapi);
 
@@ -44,6 +47,7 @@ if (OperatingSystem.IsMacOS())
     hybridwebviewapp.AddiOSSimulator()
         .WithOtlpDevTunnel()
         .WithReference(webapi, publicDevTunnel);
+    */
 }
 
 mauiapp.AddAndroidEmulator()
